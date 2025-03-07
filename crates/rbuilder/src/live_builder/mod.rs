@@ -23,7 +23,8 @@ use crate::{
     provider::StateProviderFactory,
     telemetry::{inc_active_slots, mark_building_started, reset_histogram_metrics},
     utils::{
-        error_storage::spawn_error_storage_writer, provider_head_state::ProviderHeadState, Signer,
+        error_storage::spawn_error_storage_writer, format_offset_datetime_rfc3339,
+        provider_head_state::ProviderHeadState, Signer,
     },
 };
 use alloy_consensus::Header;
@@ -223,9 +224,8 @@ where
                     slot = payload.slot(),
                     block = payload.block(),
             payload_id = payload.payload_id,
-                    ?current_time,
-                    payload_timestamp = ?payload.timestamp(),
-                    ?time_to_slot,
+                    payload_timestamp = format_offset_datetime_rfc3339(&payload.timestamp()),
+                    time_to_slot_s = time_to_slot.as_seconds_f64(),
                     parent_hash = ?payload.parent_block_hash(),
                     provider_head_state = ?ProviderHeadState::new(&self.provider),
                     "Received payload, time till slot timestamp",
