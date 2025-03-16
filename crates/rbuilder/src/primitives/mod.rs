@@ -23,7 +23,6 @@ use reth::transaction_pool::{
 use reth_node_core::primitives::SignedTransaction;
 use reth_primitives::{
     kzg::{BYTES_PER_BLOB, BYTES_PER_COMMITMENT, BYTES_PER_PROOF},
-    transaction::SignedTransactionIntoRecoveredExt,
     PooledTransaction, Recovered, Transaction, TransactionSigned,
 };
 use serde::{Deserialize, Serialize};
@@ -651,7 +650,7 @@ impl TransactionSignedEcRecoveredWithBlobs {
         T: TransactionOrdering<Transaction = <V as TransactionValidator>::Transaction>,
         S: BlobStore,
     {
-        let blob_sidecar = pool.get_blob(*tx.tx().hash())?.map(|b| (*b).clone());
+        let blob_sidecar = pool.get_blob(*tx.inner().hash())?.map(|b| (*b).clone());
         Self::new(tx, blob_sidecar, None)
     }
 
@@ -665,7 +664,7 @@ impl TransactionSignedEcRecoveredWithBlobs {
     }
 
     pub fn hash(&self) -> TxHash {
-        *self.tx.tx().hash()
+        *self.tx.inner().hash()
     }
 
     pub fn signer(&self) -> Address {
@@ -1132,9 +1131,8 @@ fn can_execute_with_block_base_fee<Transaction: AsRef<TransactionSigned>>(
 mod tests {
     use super::*;
     use alloy_consensus::TxLegacy;
-    use alloy_primitives::fixed_bytes;
+    use alloy_primitives::{fixed_bytes, PrimitiveSignature};
     use reth_primitives::{Transaction, TransactionSigned};
-    use revm_primitives::PrimitiveSignature;
     use uuid::uuid;
 
     #[test]

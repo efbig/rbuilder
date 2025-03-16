@@ -113,7 +113,8 @@ min-info-logs = ["tracing/release_max_level_info"]
 min-debug-logs = ["tracing/release_max_level_debug"]
 min-trace-logs = ["tracing/release_max_level_trace"]
 
-optimism = ["reth-optimism-node/optimism", "reth-optimism-cli/optimism"]
+# TODO: remove?
+optimism = []
 
 integration = []
 flashblocks = []
