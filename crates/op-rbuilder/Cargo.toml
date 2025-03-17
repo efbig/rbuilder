@@ -16,6 +16,7 @@ reth-optimism-payload-builder.workspace = true
 reth-optimism-evm.workspace = true
 reth-optimism-consensus.workspace = true
 reth-optimism-primitives.workspace = true
+reth-optimism-txpool.workspace = true
 reth-cli-util.workspace = true
 reth-payload-primitives.workspace = true
 reth-evm.workspace = true
@@ -40,6 +41,7 @@ reth-payload-util.workspace = true
 reth-transaction-pool.workspace = true
 reth-testing-utils.workspace = true
 reth-optimism-forks.workspace = true
+
 alloy-primitives.workspace = true
 alloy-consensus.workspace = true
 alloy-eips.workspace = true
@@ -50,18 +52,21 @@ alloy-rpc-types-eth.workspace = true
 alloy-rpc-client.workspace = true
 alloy-transport.workspace = true
 alloy-network.workspace = true
+alloy-provider.workspace = true
+alloy-serde.workspace = true
 
 # op
+alloy-op-evm.workspace = true
 op-alloy-consensus.workspace = true
 op-alloy-rpc-types-engine.workspace = true
 op-alloy-network.workspace = true
 
 revm.workspace = true
+op-revm.workspace = true
 
 tracing.workspace = true
 futures-util = "0.3.31"
 eyre.workspace = true
-alloy-provider.workspace = true
 tower = "0.4"
 serde_with.workspace = true
 serde.workspace = true
@@ -81,10 +86,9 @@ chrono = "0.4"
 uuid = { version = "1.6.1", features = ["serde", "v5", "v4"] }
 tokio-tungstenite = "0.26.2"
 rand = "0.8.5"
-alloy-serde = "0.7"
 tracing-subscriber = { version = "0.3.18", features = ["env-filter", "json"] }
 
-rollup-boost = { git = "http://github.com/flashbots/rollup-boost", rev = "e74a1fd01366e4ddd13515da4efda59cdc8fbce0" }
+rollup-boost = { git = "http://github.com/efbig/rollup-boost", branch = "flashblocks-alloy-0.12.5" } # TODO:
 
 [target.'cfg(unix)'.dependencies]
 tikv-jemallocator = { version = "0.6", optional = true }
@@ -112,9 +116,6 @@ min-warn-logs = ["tracing/release_max_level_warn"]
 min-info-logs = ["tracing/release_max_level_info"]
 min-debug-logs = ["tracing/release_max_level_debug"]
 min-trace-logs = ["tracing/release_max_level_trace"]
-
-# TODO: remove?
-optimism = []
 
 integration = []
 flashblocks = []

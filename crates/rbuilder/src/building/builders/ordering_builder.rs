@@ -407,11 +407,9 @@ fn simulation_too_low<OrderPriorityType: OrderPriority>(
 
 #[cfg(test)]
 mod tests {
-    use revm_primitives::U256;
-
-    use crate::building::order_priority::{OrderMaxProfitPriority, OrderMevGasPricePriority};
-
     use super::*;
+    use crate::building::order_priority::{OrderMaxProfitPriority, OrderMevGasPricePriority};
+    use alloy_primitives::U256;
 
     #[test]
     fn test_simulation_too_low_max_profit() {
