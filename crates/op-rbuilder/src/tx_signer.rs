@@ -95,7 +95,7 @@ mod test {
         let signed_tx = signer.sign_tx(tx).expect("sign tx");
         assert_eq!(signed_tx.signer(), address);
 
-        let signed = signed_tx.into_tx();
+        let signed = signed_tx.into_inner();
         assert_eq!(signed.recover_signer().ok(), Some(address));
     }
 }

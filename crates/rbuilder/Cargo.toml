@@ -37,7 +37,6 @@ reth-chainspec.workspace = true
 reth-evm.workspace = true
 reth-evm-ethereum.workspace = true
 revm.workspace = true
-revm-primitives.workspace = true
 revm-inspectors.workspace = true
 reth-node-ethereum.workspace = true
 

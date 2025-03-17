@@ -103,9 +103,6 @@ revm = { version = "20.0.0-alpha.5", features = [
     "optional_balance_check",
 ], default-features = false }
 revm-inspectors = "0.17.0-alpha.1"
-revm-primitives = { version = "16.0.0-alpha.3", features = [
-    "std",
-], default-features = false }
 op-revm = { version = "1.0.0-alpha.4", default-features = false }
 
 ethereum_ssz_derive = "0.8"

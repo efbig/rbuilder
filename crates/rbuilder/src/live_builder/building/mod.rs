@@ -1,7 +1,5 @@
 mod unfinished_block_building_sink_muxer;
 
-use std::{cell::RefCell, rc::Rc, sync::Arc, thread, time::Duration};
-
 use crate::{
     building::{
         builders::{
@@ -14,7 +12,8 @@ use crate::{
     primitives::{OrderId, SimulatedOrder},
     provider::StateProviderFactory,
 };
-use revm_primitives::Address;
+use alloy_primitives::Address;
+use std::{cell::RefCell, rc::Rc, sync::Arc, thread, time::Duration};
 use tokio::sync::{broadcast, mpsc};
 use tokio_util::sync::CancellationToken;
 use tracing::{debug, info, trace, warn};
