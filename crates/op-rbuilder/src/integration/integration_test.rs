@@ -77,7 +77,7 @@ mod tests {
 
             // query the block and the transactions inside the block
             let block = provider
-                .get_block_by_hash(block_hash, BlockTransactionsKind::Hashes)
+                .get_block_by_hash(block_hash)
                 .await?
                 .expect("block");
 
@@ -185,7 +185,7 @@ mod tests {
 
             // query the block and the transactions inside the block
             let block = provider
-                .get_block_by_hash(block_hash, BlockTransactionsKind::Hashes)
+                .get_block_by_hash(block_hash)
                 .await?
                 .expect("block");
 
@@ -314,7 +314,7 @@ mod tests {
 
         // Query the block and check transaction ordering
         let block = provider
-            .get_block_by_hash(block_hash, BlockTransactionsKind::Full)
+            .get_block_by_hash(block_hash)
             .await?
             .expect("block");
 
