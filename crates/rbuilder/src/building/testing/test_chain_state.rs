@@ -426,7 +426,7 @@ impl TxArgs {
             value: 0,
             max_fee_per_gas: 1,
             max_priority_fee: 0,
-            gas_limit: 100_000,
+            gas_limit: 1_000_000,
             input: Vec::new(),
         }
     }
