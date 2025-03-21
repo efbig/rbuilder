@@ -239,14 +239,14 @@ impl BlockData {
                     let tx = *tx;
                     !available_accounts
                         .iter()
-                        .any(|x| x.nonce == tx.nonce() && x.address == tx.from)
+                        .any(|x| x.nonce == tx.nonce() && x.address == tx.from())
                 })
                 .map(|tx| {
                     (
                         tx.tx_hash(),
                         AccountNonce {
                             nonce: tx.nonce(),
-                            account: tx.from,
+                            account: tx.from(),
                         },
                     )
                 })
@@ -257,7 +257,7 @@ impl BlockData {
     }
 
     fn is_validator_fee_payment(&self, tx: &Transaction) -> bool {
-        tx.from == self.onchain_block.header.beneficiary
+        tx.from() == self.onchain_block.header.beneficiary
             && TransactionTrait::to(tx)
                 .is_some_and(|to| to == self.winning_bid_trace.proposer_fee_recipient)
     }

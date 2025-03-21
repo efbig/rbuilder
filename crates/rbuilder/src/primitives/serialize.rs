@@ -741,15 +741,18 @@ impl From<Order> for RawOrder {
 
 #[cfg(test)]
 mod tests {
+<<<<<<< HEAD
     use std::str::FromStr;
 
     use crate::primitives::ReplacementData;
 
+=======
+>>>>>>> 1d3c435 (deps: reth v1.3.2)
     use super::*;
     use alloy_consensus::Transaction;
     use alloy_eips::eip2718::Encodable2718;
-    use alloy_primitives::{address, fixed_bytes, keccak256, U256};
-    use revm_primitives::bytes;
+    use alloy_primitives::{address, bytes, fixed_bytes, keccak256, U256};
+    use std::str::FromStr;
     use uuid::uuid;
 
     #[test]
