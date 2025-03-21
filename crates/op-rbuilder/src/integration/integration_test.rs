@@ -315,6 +315,7 @@ mod tests {
         // Query the block and check transaction ordering
         let block = provider
             .get_block_by_hash(block_hash)
+            .full()
             .await?
             .expect("block");
 
