@@ -12022,7 +12022,7 @@ dependencies = [
 [[package]]
 name = "rollup-boost"
 version = "0.1.0"
-source = "git+http://github.com/flashbots/rollup-boost?branch=flashblocks-alloy-0.12.6#30ee95d5ef3c4bb176dfea3bb29c8b964f48cf68"
+source = "git+http://github.com/flashbots/rollup-boost?rev=6b94e1037f41e0817f2bcb1f1ca5013a5359616a#6b94e1037f41e0817f2bcb1f1ca5013a5359616a"
 dependencies = [
  "alloy-eips",
  "alloy-primitives 0.8.23",
