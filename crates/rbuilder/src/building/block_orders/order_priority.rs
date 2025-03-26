@@ -1,8 +1,6 @@
-use std::{cmp::Ordering, sync::Arc};
-
-use revm_primitives::U256;
-
 use crate::primitives::{SimValue, SimulatedOrder};
+use alloy_primitives::U256;
+use std::{cmp::Ordering, sync::Arc};
 
 /// Trait to specify how we prioritize orders (eg: which we try first when are building blocks)
 pub trait OrderPriority: Ord + Clone + std::fmt::Debug + Send + Sync {
