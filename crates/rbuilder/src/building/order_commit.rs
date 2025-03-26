@@ -1231,10 +1231,9 @@ fn execute_evm(
             EVMError::Transaction(tx_err) => {
                 return Ok(Err(TransactionErr::InvalidTransaction(tx_err)))
             }
-            EVMError::Database(_)
-            | EVMError::Header(_)
-            | EVMError::Custom(_)
-            | EVMError::Precompile(_) => return Err(err.into()),
+            EVMError::Database(_) | EVMError::Header(_) | EVMError::Custom(_) => {
+                return Err(err.into())
+            }
         },
     };
     drop(evm);
